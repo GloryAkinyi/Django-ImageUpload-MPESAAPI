@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Details</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+<h1>Update Information</h1>
+<form method="POST" action="/update/{{ product.id }}" class="p-5">
+    {% csrf_token %}
+    <label for="name" class="form-label">Product Name</label>
+    <input type="text" id="name" name="name" value="{{ product.name }}" class="form-control">
+
+     <label for="price" class="form-label">Price</label>
+    <input type="number" id="price" name="price" value="{{ product.price }}" class="form-control">
+
+     <label for="description" class="form-label">Description</label>
+    <input type="text" id="description" name="description" value="{{ product.description}}" class="form-control">
+
+    <br><br>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+
+</body>
+</html>
