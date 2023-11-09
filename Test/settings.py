@@ -38,7 +38,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'testapp.apps.TestappConfig',
+    'django_daraja'
+
 ]
+
+MPESA_ENVIRONMENT = 'sandbox'
+MPESA_CONSUMER_KEY = 'Ve9AuhTwjjyAkPxdDDABpNYebvJC7G12'
+MPESA_CONSUMER_SECRET = 'QVdfqXMGDZPOKxQG'
+MPESA_EXPRESS_SHORTCODE = '174379'
+MPESA_SHORTCODE_TYPE = 'paybill'
+MPESA_PASSKEY = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919'
+MPESA_INITIATOR_USERNAME = 'testapi'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

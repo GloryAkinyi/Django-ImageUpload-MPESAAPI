@@ -20,6 +20,7 @@
         <th>Name</th>
         <th>Price</th>
         <th>Description</th>
+        <th>Color</th>
         <th>Action</th>
     </tr>
     </thead>
@@ -30,9 +31,11 @@
         <td>{{ product.name }}</td>
         <td>{{ product.price }}</td>
         <td>{{ product.description }}</td>
+        <td>{{ product.color }}</td>
         <td>
-            <a href="edit/{{ product.id }}" class="btn btn-warning">EDIT</a>
-            <a href="delete/{{ product.id }}" class="btn btn-danger">DELETE</a>
+            <a href="/edit/{{ product.id }}" class="btn btn-warning">EDIT</a>
+            <a href="/delete/{{ product.id }}" class="btn btn-danger">DELETE</a>
+            <a href="{% url 'pay' %}" class="btn btn-success">PAY</a>
         </td>
         </tr>
 
@@ -42,7 +45,6 @@
 <br>
 
 <center><a href="/add" class="btn btn-primary">Add Product</a></center>
-
 
 </body>
 </html>

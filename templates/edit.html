@@ -20,6 +20,12 @@
      <label for="description" class="form-label">Description</label>
     <input type="text" id="description" name="description" value="{{ product.description}}" class="form-control">
 
+    <label for="color">Color</label>
+     <select id="color" name="color">
+         <option selected>{{product.color}}</option>
+         <option value="brown">Brown</option>
+         <option value="black">Black</option>
+     </select>
     <br><br>
     <button type="submit" class="btn btn-primary">Update</button>
 </form>
