@@ -35,7 +35,7 @@
         <td>
             <a href="/edit/{{ product.id }}" class="btn btn-warning">EDIT</a>
             <a href="/delete/{{ product.id }}" class="btn btn-danger">DELETE</a>
-            <a href="{% url 'pay' %}" class="btn btn-success">PAY</a>
+            <a href="{% url 'pay' %}" class="btn btn-outline-success">PAY</a>
         </td>
         </tr>
 
@@ -44,7 +44,7 @@
 </table>
 <br>
 
-<center><a href="/add" class="btn btn-primary">Add Product</a></center>
+<center><a href="{% url 'add' %}" class="btn btn-primary">Add Product</a></center>
 
 </body>
 </html>

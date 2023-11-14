@@ -13,7 +13,7 @@
 <body>
 <h1 class="text-center">Add Product</h1>
 
-<form method="POST" action="/add/">
+<form method="POST" action="/add/" enctype="multipart/form-data">
     {% csrf_token %}
 
     <div class="row">
@@ -56,9 +56,14 @@
                 <option  value="" disabled selected>Select Color</option>
                 <option value="brown">Brown</option>
                 <option value="blue">Blue</option>
+                <option value="white">Grey</option>
+                <option value="Green">Green</option>
             </select>
         </div>
     </div>
+    <br>
+
+
     <br>
 
   <div class="row">

@@ -4,8 +4,8 @@ import json
 from django.shortcuts import render, redirect
 from requests.auth import HTTPBasicAuth
 
-from testapp.models import Member, Product
-from testapp.forms import ProductForm
+from testapp.models import Member, Product,ImageModel
+from testapp.forms import ProductForm,ImageUploadForm
 from django.http import HttpResponse
 from testapp.credentials import LipanaMpesaPpassword,MpesaAccessToken,MpesaC2bCredential
 
@@ -91,7 +91,9 @@ def token(request):
     return render(request, 'token.html', {"token":validated_mpesa_access_token})
 
 def pay(request):
-    return render(request, 'pay.html')
+   return render(request, 'pay.html')
+
+
 
 def stk(request):
     if request.method =="POST":
@@ -114,4 +116,24 @@ def stk(request):
             "TransactionDesc": "Web Development Charges"
         }
         response = requests.post(api_url, json=request, headers=headers)
-        return HttpResponse(response)
+        return HttpResponse("Success")
+
+
+def upload_image(request):
+    if request.method == 'POST':
+        form = ImageUploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('/showimage')
+    else:
+        form = ImageUploadForm()
+    return render(request, 'upload_image.html', {'form': form})
+
+def show_image(request):
+    images = ImageModel.objects.all()
+    return render(request, 'show_image.html', {'images': images})
+
+def imagedelete(request, id):
+    image = ImageModel.objects.get(id=id)
+    image.delete()
+    return redirect('/showimage')

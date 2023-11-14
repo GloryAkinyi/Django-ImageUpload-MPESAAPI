@@ -18,6 +18,13 @@ class Product(models.Model):
     description = models.TextField()
     color = models.CharField(max_length=30,default="white")
 
-
     def __str__(self):
         return self.name
+
+class ImageModel(models.Model):
+    image = models.ImageField(upload_to='images/')
+    title = models.CharField(max_length=50)
+    price = models.CharField(max_length=50)
+
+
+
